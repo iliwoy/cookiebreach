@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>BREACH by Cookie Injection</title>
+        <script src='/?type=jquery'></script>
+        <script src='/?type=app'></script>
+        <style>
+            table {
+                border: 1px solid #aaa;
+                border-collapse: collapse;
+            }
+            table td {
+                border: 1px solid #dadada;
+            }
+            .progress {
+                height: 10px;
+                width: 0px;
+                background-color: #99c9fb;
+            }
+            .log {
+                height: 200px;
+                overflow: scroll;
+            }
+        </style>
+    </head>
+    <body>
+        <table style='width: 100%'>
+            <tbody>
+                <tr style='height: 30px;'>
+                    <td style='width: 80px'>
+                        Token:
+                    </td>
+                    <td class='knowntoken'>
+                    </td>
+                </tr>
+                <tr style='height: 30px;'>
+                    <td style='width: 80px'>
+                        Winner:
+                    </td>
+                    <td class='winner'>
+                    </td>
+                </tr>
+                <tr style='height: 200px;'>
+                    <td style='width: 80px'>
+                        Detail:
+                    </td>
+                    <td>
+                        <div class='log'></div>
+                    </td>
+                </tr>
+                <tr style='height: 10px;'>
+                    <td colspan='2'>
+                        <div class='progress'>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
