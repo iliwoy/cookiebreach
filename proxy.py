@@ -258,19 +258,23 @@ if __name__=='__main__':
         dest='local_ip',default='127.0.0.1',
         help='Local IP address to bind to')
     parser.add_option(
+        '-e','--evil-port',
+        type='int',dest='evil_port',default=80,
+        help='Local evil port to bind to')
+    parser.add_option(
         '-p','--local-port',
-        type='int',dest='local_port',default=80,
+        type='int',dest='local_port',default=443,
         help='Local port to bind to')
     parser.add_option(
         '-r','--remote-ip',dest='remote_ip',
         help='Local IP address to bind to')
     parser.add_option(
         '-P','--remote-port',
-        type='int',dest='remote_port',default=80,
+        type='int',dest='remote_port',default=443,
         help='Remote port to bind to')
     options, args = parser.parse_args()
 
-    thread.start_new_thread(HttpServer, (options.local_ip, 80))
-    forwarder(options.local_ip,options.local_port,options.remote_ip,options.remote_port)
+    thread.start_new_thread(HttpServer, (options.local_ip, options.evil_port))
+    forwarder(options.local_ip, options.local_port, options.remote_ip, options.remote_port)
     asyncore.loop()
 
